@@ -125,7 +125,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>flowName</name>
-                <value>Found_on_the_Internet_2</value>
+                <value>Screen_TrailSignPost</value>
             </componentInstanceProperties>
             <componentName>flowruntime:interview</componentName>
             <visibilityRule>
@@ -143,7 +143,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>flowName</name>
-                <value>Found_on_the_internet</value>
+                <value>Screen_TileCardWithButton</value>
             </componentInstanceProperties>
             <componentName>flowruntime:interview</componentName>
             <visibilityRule>
