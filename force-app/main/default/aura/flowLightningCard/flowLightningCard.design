@@ -1,0 +1,6 @@
+<design:component >
+	<design:attribute name="displayValue" label="Show this value" />
+    <design:attribute name="displayType" label="Value should be formatted as number, currency or text."/>
+    <design:attribute name="cardTitle" label="Use this title" />
+    <design:attribute name="icon" label="SLDS Icon like custom:custom39. Look it up in the SLDS docs"/>
+</design:component>

@@ -1,0 +1,23 @@
+<aura:component implements="lightning:availableForFlowScreens"  access="global">
+    <aura:attribute name="displayValue" type="String" />
+    <aura:attribute name="displayType" type="String" default="text"/>
+    <aura:attribute name="cardTitle" type="String" />
+    <aura:attribute name="icon" type="String" default="standard:account"/>
+
+
+     <lightning:card iconName="{!v.icon}" >
+         <aura:set attribute="title">
+             {!v.cardTitle}
+             &nbsp;
+         <aura:if isTrue="{!v.displayType == 'currency'}">
+                    <lightning:formattedNumber value="{!v.displayValue}" maximumFractionDigits="2" style="currency"/>
+                </aura:if>
+                <aura:if isTrue="{!v.displayType == 'number'}">
+                    <lightning:formattedNumber value="{!v.displayValue}" maximumSignificantDigits="2" maximumFractionDigits="0"/>
+                </aura:if>
+                <aura:if isTrue="{!v.displayType == 'text'}">
+                    <lightning:formattedText value="{!v.displayValue}"/>
+                </aura:if>
+           </aura:set>
+     </lightning:card>    
+</aura:component>

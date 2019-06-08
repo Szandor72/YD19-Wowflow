@@ -1,0 +1,64 @@
+.THIS .post {
+  margin: 50px auto 120px;
+	width: 350px;
+	height: 105px;
+	background-color: #67513a;
+	border-radius: 8px;
+	background-size: 113%;
+	position: relative;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: right;
+	font-family: "Proxima Nova";
+	font-size: 1.4em;
+	letter-spacing: 10px;
+	font-weight: 400;
+	line-height: 105px;
+	box-shadow: inset 0 19px 1px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+.THIS .post span {
+	padding: 5px 15px 4px;
+	border-radius: 15px;
+	background-color: #67513a;
+	margin-right: -5px;
+    z-index: 9999;
+}
+
+.THIS .post:before {
+	content: "";
+	position: absolute;
+	right: -42px;
+	top: 7px;
+	border-top-right-radius: 30%;
+	width: 90px;
+	z-index: -1;
+	height: 90px;
+	background-color: #67513a;
+	border-top-right-radius: 19%;
+	transform: rotate(45deg) skewX(1deg) scale(.8,.8);
+	background: repeating-linear-gradient(-231deg, transparent, transparent 10px, white 15px, white 11px);
+	background-size: 114% 124%;
+	background-position: 13px -81px;
+	background-repeat: no-repeat;
+	background-color: #67513a;
+	box-shadow: inset 0 19px 3px rgba(0,0,0,0.2);
+}
+
+.THIS .post:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 83%;
+	z-index: -1;
+	margin: 0 auto;
+	height: 345px;
+	width: 45px;
+	background-color: #67513a;
+	border-top-left-radius: 75px 78px;
+	border-bottom-left-radius: 80px 30px;
+	border-bottom-right-radius: 80px 30px;
+	box-shadow: inset 0 28px 2px rgba(0,0,0,0.3);
+}

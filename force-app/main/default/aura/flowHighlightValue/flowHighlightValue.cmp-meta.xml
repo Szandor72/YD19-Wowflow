@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>45.0</apiVersion>
+    <description>Depending on type will visualize a flow&#39;s output variable as Text, Date, Currency, Percent or Number</description>
+</AuraDefinitionBundle>

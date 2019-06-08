@@ -1,0 +1,8 @@
+<aura:component implements="lightning:availableForFlowScreens">
+    
+    <aura:attribute name="displayValue" type="String" access="global"
+                    description="The value received from a flow. Will be displayed."/>
+	
+    {!v.displayValue}
+    
+</aura:component>
