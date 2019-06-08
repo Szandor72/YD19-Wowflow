@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    
+    <lightning:card title="{!'Achtung, Achtung! ' + v.displayValue}">
+        <div class="container">
+            <div class="lamp"></div>
+            <div class="lring"></div>
+            <div class="ltop"></div>
+            <div class="lamp l2"></div>
+            <div class="lbot"></div>
+            <div class="main"></div>
+            <div class="bottom"></div>
+            <div class="screw">
+				<div class="hex"></div>
+            </div>
+		</div>
+   	
+    </lightning:card>
+    
+</aura:component>
