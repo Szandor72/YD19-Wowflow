@@ -1,0 +1,8 @@
+<design:component>
+<design:attribute name="displayValue" label="Output String" 
+                      description="Some text to conditionally show."/>
+    <design:attribute name="theCounter" label="Counter" 
+                      description="The number of open and overdue opportunities."/>
+    <design:attribute name="theAmount" label="Sum of Amount" 
+                      description="The total amount of all open and overdue opportunities."/>
+</design:component>

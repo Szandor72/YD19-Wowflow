@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <description>Increases the Counter and adds the amount to the total amount</description>
+        <name>AssignValues</name>
+        <label>Assign Values</label>
+        <locationX>314</locationX>
+        <locationY>481</locationY>
+        <assignmentItems>
+            <assignToReference>theCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>theTotalAmount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>loopRecord.Amount</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LoopOverCollectionToCount</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Check if the returned collection of records is empty</description>
+        <name>CheckCollectionIsEmpty</name>
+        <label>Collection is Empty?</label>
+        <locationX>187</locationX>
+        <locationY>189</locationY>
+        <defaultConnector>
+            <targetReference>LoopOverCollectionToCount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>EmptyCollection</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>openOpportunities</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Blank</targetReference>
+            </connector>
+            <label>Empty Collection</label>
+        </rules>
+    </decisions>
+    <description>Source: https://codepen.io/dstdia/pen/agoPvp 
+
+Checks if an Accounts currently has open and overdue opportunities.</description>
+    <interviewLabel>Show Warning for Open Opportunities - Found on the internet {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Show Warning for Open Opportunities - Found on the internet</label>
+    <loops>
+        <description>Loop over the returned records to count their number</description>
+        <name>LoopOverCollectionToCount</name>
+        <label>Loop over collection to count</label>
+        <locationX>194</locationX>
+        <locationY>369</locationY>
+        <assignNextValueToReference>loopRecord</assignNextValueToReference>
+        <collectionReference>openOpportunities</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>AssignValues</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>OpenOverdueOpps</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Checks if the Account has open opportunities that are beyond Close Date</description>
+        <name>FindOpenOverdueOpportunities</name>
+        <label>Find Open &amp; Overdue Opportunities</label>
+        <locationX>193</locationX>
+        <locationY>59</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CheckCollectionIsEmpty</targetReference>
+        </connector>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>CloseDate</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsClosed</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Opportunity</object>
+        <outputReference>openOpportunities</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Amount</queriedFields>
+    </recordLookups>
+    <screens>
+        <description>Blank Screen as a standard</description>
+        <name>Blank</name>
+        <label>Blank</label>
+        <locationX>583</locationX>
+        <locationY>189</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>OK</name>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>OpenOverdueOpps</name>
+        <label>Open Overdue Opps</label>
+        <locationX>588</locationX>
+        <locationY>359</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Warning</name>
+            <extensionName>c:flowWarningLight</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>theCounter</name>
+                <value>
+                    <elementReference>theCounter</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>theAmount</name>
+                <value>
+                    <elementReference>theTotalAmount</elementReference>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>theCounter</assignToReference>
+                <name>theCounter</name>
+            </outputParameters>
+            <outputParameters>
+                <assignToReference>theTotalAmount</assignToReference>
+                <name>theAmount</name>
+            </outputParameters>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <startElementReference>FindOpenOverdueOpportunities</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>Message for</description>
+        <name>AllSet</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>Everything is fine!</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Variable to store the loop record</description>
+        <name>loopRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>openOpportunities</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Variable to count the opportunities</description>
+        <name>theCounter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Variable to store the total amount</description>
+        <name>theTotalAmount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>2</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>
