@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="displayValue" label="Flow Output Value" 
+                      description="The output value that should be displayed."/>
+</design:component>

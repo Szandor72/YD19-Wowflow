@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Trail Sign Post - found on the Internet {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>	Trail Sign Post - Found on the Internet</label>
+    <description>Source from: https://codepen.io/ramenhog/pen/LtEni</description>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>postCmp</name>
+        <label>post</label>
+        <locationX>259</locationX>
+        <locationY>50</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>post</name>
+            <extensionName>c:flowSignPost</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>displayValue</name>
+                <value>
+                    <stringValue>Very well done!</stringValue>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <startElementReference>postCmp</startElementReference>
+    <status>Active</status>
+</Flow>

@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens" access="global" >
+    <aura:attribute name="displayValue" type="String" access="global"
+                    description="The value received from a flow. Will be displayed."/>
+    
+    <!-- wrap snippets in spans to avoid css conundrums -->
+    <span>
+        <figure class="snip1519">
+            <figcaption><lightning:icon iconName="action:approval" alternativeText="Approved" />
+                <h3>{!v.displayValue}</h3>
+                <p>Some encouraging words might be in order. The button below works, too</p>
+                <a href="./lightning/r/0011l00000A1SUIAA3/related/Cases/view" class="button">Read More</a>
+            </figcaption>
+        </figure>
+    </span>
+</aura:component>
