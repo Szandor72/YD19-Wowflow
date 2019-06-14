@@ -4,6 +4,23 @@
 	position: relative;
 }
 
+.THIS .warning {
+    padding-left: 18px;
+    padding-bottom: 20px;
+}
+
+.THIS .counter {
+    
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    -webkit-transform: translate(-50%, 0%);
+	-ms-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
+    top: 15%;
+    left: 50%;
+}
+
 .THIS .lring {
 	position: relative;
 	top: 0;
@@ -169,185 +186,3 @@
 	border-right: .8rem solid transparent;
 	border-top: 0.4rem solid #888;
 }
-
-
-/*.THIS {
-    background: #4b79a1;
-	background: -webkit-linear-gradient(to right, #283e51, #4b79a1);
-	background: linear-gradient(to right, #283e51, #4b79a1);
-}*/
-/*
-.THIS {
-    height: 80vh;
-}
-
-.THIS .lampcontainer {
-    clear: all;
-    height: 100%;
-}
-
-.THIS #output {
-    clear:left;
-}
-.THIS .lring {
-	position: relative;
-	top: -12vh;
-	left: 9.9vh;
-	height: 12vh;
-	width: 10vh;
-	border-radius: 30vh;
-	border: solid #666 1vh;
-	box-shadow: 0 0 1vh rgba(0, 0, 0, 1), inset 0 0 1vh rgba(0, 0, 0, 1);
-}
-.THIS .ltop {
-	position: absolute;
-	top: -1.5vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	height: 3vh;
-	width: 8vh;
-	background: #ffbc20;
-	border-radius: 0.5vh;
-}
-
-.THIS .lbot {
-	position: absolute;
-	top: 27.5vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	border-bottom: 10vh solid #ffbc20;
-	border-left: 5vh solid transparent;
-	border-right: 5vh solid transparent;
-	height: 0;
-	width: 12vh;
-}
-.THIS .lamp {
-	position: absolute;
-	top: 20vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	height: 30vh;
-	width: 30vh;
-	border-radius: 30vh;
-	background: #ffbc20;
-	animation: blink 1s infinite ease;
-}
-
-.THIS .l2 {
-	top: 1vh;
-	height: 28vh;
-	width: 28vh;
-	border-radius: 30vh;
-	background: #ffbc20;
-	background-size: 1.5vh 1.5vh;
-	background-image: linear-gradient(
-			45deg,
-			#a37d23 25%,
-			transparent 25%,
-			transparent 75%,
-			#a37d23 75%,
-			#543f0f
-		),
-		linear-gradient(
-			135deg,
-			#a37d23 25%,
-			transparent 25%,
-			transparent 75%,
-			#a37d23 75%,
-			#543f0f
-		);
-}
-
-@keyframes blink {
-	0% {
-		box-shadow: 0 0 0vh #ffbc20;
-	}
-	85% {
-		box-shadow: 0 0 0vh #ffbc20;
-	}
-	100% {
-		box-shadow: 0 0 100vh #ffbc20;
-	}
-}
-
-.THIS .main {
-	position: absolute;
-	top: 30vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	height: 26vh;
-	width: 38vh;
-	background: #ffe04c;
-	border-radius: 5vh 5vh 1vh 1vh;
-	box-shadow: 0 0 2vh rgba(0, 0, 0, 1), inset 0 0 1vh rgba(0, 0, 0, 0.9);
-}
-
-.THIS .bottom {
-	position: absolute;
-	top: 56vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	height: 4vh;
-	width: 36vh;
-	background: #2b2a28;
-	border-radius: 0vh 0vh 2vh 2vh;
-	box-shadow: 0 0 2vh rgba(0, 0, 0, 1), inset 0 0 1vh rgba(0, 0, 0, 0.9);
-}
-
-.THIS .screw {
-	position: relative;
-	top: 30vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	height: 7vh;
-	width: 7vh;
-	border-radius: 30vh;
-	background: radial-gradient(#ddd, #aaa, #333);
-	box-shadow: 0 0 1vh rgba(0, 0, 0, 1), inset 0 0 0.1vh rgba(0, 0, 0, 0.9);
-}
-
-.THIS .hex {
-	position: relative;
-	top: 3vh;
-	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
-	width: 2vh;
-	height: 1.2vh;
-	background: #888;
-}
-.THIS .lamp .screw .hex:before {
-	content: "";
-	position: absolute;
-	top: -0.5vh;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 1vh solid transparent;
-	border-right: 1vh solid transparent;
-	border-bottom: 0.5vh solid #888;
-}
-.THIS .lamp .screw .hex:after {
-	content: "";
-	position: absolute;
-	bottom: -0.5vh;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 1vh solid transparent;
-	border-right: 1vh solid transparent;
-	border-top: 0.5vh solid #888;
-}*/
