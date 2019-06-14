@@ -1,0 +1,35 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="displayValue" 
+                    type="String" 
+                    access="global" 
+                    description="The display string received from a flow. Will be displayed."/>
+    <aura:attribute name="theCounter" 
+                    type="Integer" 
+                    access="global" 
+                    description="The counter received from a flow. Will be displayed."/>
+    <aura:attribute name="theAmount" 
+                    type="Integer" 
+                    access="global" 
+                    description="The total amount received from a flow. Will be displayed."/>
+    
+    <lightning:card title="Achtung, Achtung!">
+        <div class="warning">
+            There are {!v.theCounter} opportunities open beyond their close date.<br/>
+            {!v.theAmount}€ are at risk!
+        </div>
+        <div class="container">
+            <div class="lamp"></div>
+            <div class="lring"></div>
+            <div class="ltop"></div>
+            <div class="lamp l2"></div>
+            <div class="lbot"></div>
+            <div class="main"></div>
+            <div class="bottom"></div>
+            <div class="screw">
+				<div class="hex"></div>
+            </div>
+		</div>
+   	
+    </lightning:card>
+    
+</aura:component>

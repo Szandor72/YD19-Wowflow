@@ -6,6 +6,7 @@
     <members>flowHighlightValue</members>
     <members>flowLightningCard</members>
     <members>flowSignPost</members>
+    <members>flowWarningLight</members>
   </types>
   <types>
     <name>FlexiPage</name>
@@ -17,7 +18,7 @@
     <members>OpportunityRecord_ShowCaseDetails</members>
     <members>Screen_TileCardWithButton</members>
     <members>Screen_TrailSignPost</members>
+    <members>Screen_Warning_for_Open_Opportunities</members>
   </types>
   <version>44.0</version>
-  <fullName>DY19-WowFlow</fullName>
 </Package>
